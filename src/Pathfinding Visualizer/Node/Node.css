@@ -1,0 +1,211 @@
+.node {
+  width: 56px;
+  height: 72px;
+  outline: 1px solid rgba(255, 77, 141, 0.25);
+  display: inline-block;
+  background-color: #ffffff;
+}
+
+.node-start {
+  background-image: url("../Styling/start.svg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 80%;
+  background-color: transparent;
+
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+  animation: startIdle 1.6s ease-in-out infinite;
+}
+
+.node-finish {
+  background-image: url("../Styling/end.svg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 95%;
+}
+
+.node-wall {
+  background-color: #b24c63; /* rusty pink */
+}
+
+.node-wall-dark {
+  background-color: #8f3d52;
+}
+
+.node-station {
+  background-image: url(../Styling/station.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.node-weight-2,
+.node-weight-3,
+.node-weight-4,
+.node-weight-5,
+.node-weight-6,
+.node-weight-s-2,
+.node-weight-s-3,
+.node-weight-s-4,
+.node-weight-s-5,
+.node-weight-s-6 {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+}
+
+.node-visited {
+  animation: visitedPink 1.4s ease-out forwards;
+}
+
+.node-visited-station {
+  animation: visitedPinkStation 1.4s ease-out forwards;
+}
+
+.node-shortest-path {
+  animation: shortestPathPink 1.4s ease-out forwards;
+  background-color: transparent;
+}
+
+.node-shortest-path {
+  box-shadow: inset 0 0 6px rgba(255, 105, 180, 0.8),
+    0 0 10px rgba(255, 47, 146, 0.9);
+}
+
+.wall-animate {
+  animation: wallPink 1.2s ease-out forwards;
+}
+
+.wall-animate-dark {
+  animation: wallPinkDark 1.2s ease-out forwards;
+}
+
+@keyframes visitedPink {
+  0% {
+    transform: scale(0.3);
+    background-color: #ffe6f2;
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: #ff99c8;
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: #ff4d8d;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #ffb3d9;
+  }
+}
+
+@keyframes visitedPinkStation {
+  0% {
+    transform: scale(0.3);
+    background-color: #fff0f6;
+  }
+
+  50% {
+    background-color: #ff80b3;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #ff66a3;
+  }
+}
+
+@keyframes shortestPathPink {
+  0% {
+    transform: scale(0.6);
+    box-shadow: inset 0 0 0 2px #ffd6eb;
+  }
+
+  50% {
+    transform: scale(1.15);
+    box-shadow: inset 0 0 0 3px #ff1f7a;
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: inset 0 0 0 3px #b30059;
+  }
+}
+
+@keyframes wallPink {
+  0% {
+    transform: scale(0.6);
+    background-color: #3a3a3a;
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #1e1e1e;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #121212;
+  }
+}
+
+@keyframes wallPinkDark {
+  0% {
+    transform: scale(0.6);
+    background-color: #555555;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #2b2b2b;
+  }
+}
+@keyframes arrowPulsePink {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px #ff9ad5);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 6px #ff2f92);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 3px #ff69b4);
+    opacity: 0.9;
+  }
+}
+
+.node-shortest-path.node-up,
+.node-shortest-path.node-down,
+.node-shortest-path.node-left,
+.node-shortest-path.node-right,
+.node-shortest-path.node-upright,
+.node-shortest-path.node-downright,
+.node-shortest-path.node-upleft,
+.node-shortest-path.node-downleft {
+  background-color: transparent !important;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  animation: arrowPulsePink 1.2s ease-in-out infinite;
+}
+
+@keyframes startIdle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
